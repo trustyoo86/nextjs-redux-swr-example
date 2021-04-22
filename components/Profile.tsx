@@ -9,9 +9,11 @@ const fetcher = async () => {
 function Profile() {
   const { data } = useSWR('/FETCH/PROFILE', fetcher, { suspense: true });
 
+  console.log('data => ', data);
+
   return (
     <Suspense fallback={<div>Loading..</div>}>
-      <div>{data.name}</div>
+      <div>{data?.name}</div>
     </Suspense>
   );
 }
